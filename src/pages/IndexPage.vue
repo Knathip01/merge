@@ -33,7 +33,17 @@
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type your surname']"
       />
+       <!-- language -->
+       <q-input
+        filled
+        v-model="language"
+        label="ภาษา *"
+        hint="ภาษา"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่ภาษา']"
+      />
 
+      <!-- age -->
       <q-input
         filled
         type="number"
@@ -67,6 +77,7 @@ export default {
     const id = ref("0922872182")
     const name = ref("Knathip")
     const surname = ref("sasibut")
+    const languge = ref ("ภาษาไทย")
     const age = ref(null)
     const accept = ref(false)
 
@@ -97,9 +108,13 @@ export default {
       },
 
       onReset () {
+        id.value = null
         name.value = null
+        surname.value = null
+        languge.value = null
         age.value = null
         accept.value = false
+
       }
     }
   }
